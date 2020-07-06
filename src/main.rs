@@ -1,3 +1,6 @@
+mod cli;
+use std::env;
+
 fn main() {
-    println!("Hello, world!");
+    cli::run(env::args());
 }
