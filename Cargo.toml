@@ -1,5 +1,6 @@
 [package]
 name = "rantt"
+description = "A project planning app"
 version = "0.1.0"
 authors = ["sleb <scott.g.lebaron@gmail.com>"]
 edition = "2018"
