@@ -7,3 +7,6 @@ edition = "2018"
 
 [dependencies]
 clap = "2"
+dirs = "3"
+serde = { version = "1", features = ["derive"]}
+toml = "0.5"
