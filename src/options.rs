@@ -1,4 +1,7 @@
+use serde::export::fmt::Display;
+use serde::export::Formatter;
 use serde::{Deserialize, Serialize};
+use std::fmt;
 use std::fs::File;
 use std::io::{Read, Write};
 use std::path::PathBuf;
@@ -11,6 +14,12 @@ pub struct Options {
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Data {
     pub dir: String,
+}
+
+impl Display for Options {
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        writeln!(f, "data.dir={}", self.data.dir)
+    }
 }
 
 pub fn get_or_create_config() -> Options {

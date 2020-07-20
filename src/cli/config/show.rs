@@ -8,5 +8,5 @@ pub fn build_cli<'a, 'b>() -> App<'a, 'b> {
 }
 
 pub fn run(_matches: &ArgMatches, config: &Options) {
-    println!("{:?}", config);
+    println!("{}", config);
 }
