@@ -1,5 +1,7 @@
 # rantt
 
+![Rust](https://github.com/rantt-io/rantt/workflows/Rust/badge.svg)
+
 `rantt` is a project planning app written in Rust
 
 ## Tasks
