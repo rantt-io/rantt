@@ -1,4 +1,5 @@
 mod config;
+mod task;
 
 use clap::*;
 use rantt::options;
@@ -13,11 +14,12 @@ where
 
     let matches = app_from_crate!()
         .setting(AppSettings::SubcommandRequiredElseHelp)
-        .subcommand(config::build_cli())
+        .subcommands(vec![config::build_cli(), task::build_cli()])
         .get_matches_from(args);
 
     match matches.subcommand() {
         ("config", Some(m)) => config::run(m, &options),
+        ("task", Some(m)) => task::run(m, &options),
         _ => unreachable!(),
     }
 }

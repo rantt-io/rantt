@@ -24,11 +24,11 @@ impl Display for Options {
 
 pub fn get_or_create_config() -> Options {
     let home_dir = dirs::home_dir().expect("unable to determine home dir");
-    let options_path = home_dir.join(".rantt");
+    let options_path = home_dir.join(".ranttrc");
     if options_path.exists() {
         load_config(&options_path)
     } else {
-        let options = default_config(&options_path);
+        let options = default_config(&home_dir);
         save_config(&options_path, &options);
         options
     }
@@ -52,11 +52,12 @@ pub fn save_config(options_path: &PathBuf, options: &Options) {
     .unwrap();
 }
 
-fn default_config(options_path: &PathBuf) -> Options {
+fn default_config(home_dir: &PathBuf) -> Options {
     Options {
         data: Data {
             dir: String::from(
-                options_path
+                home_dir
+                    .join(".rantt")
                     .to_str()
                     .expect("couldn't convert options_path to str"),
             ),
